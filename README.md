@@ -1,2 +1,1 @@
-# solarsystem
-Solar system simulation
+# Python for kids and teenagers
