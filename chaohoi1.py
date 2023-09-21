@@ -1,0 +1,6 @@
+name=input("Nhap ten: ")
+print("Xin chao",name)
+quetion=input("Ban co kheo khong")
+print("Cam on vi ban da tra loi")
+age=input("Ban may tuoi")
+print("Tuoi cua toi la: ", age)
