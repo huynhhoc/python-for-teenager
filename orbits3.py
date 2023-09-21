@@ -6,7 +6,7 @@ import math
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 1580, 800
+WIDTH, HEIGHT = 1280, 640
 FPS = 60
 BG_COLOR = (0, 0, 0)
 
@@ -27,7 +27,8 @@ planet_data = [
     {"name": "Neptune", "color": (0, 0, 128), "radius": 18, "distance": 650, "angle": 0, "speed": 0.08},
     # Add more planets here
 ]
-
+# Load background image
+background = pygame.image.load("universe2.jpg")
 # Constants for Đông Chí and Hạ Chí positions
 dong_chi_position = (0, -200)
 ha_chi_position = (0, 200)
@@ -53,12 +54,15 @@ def draw_planet_orbits():
         pygame.draw.ellipse(screen, (50, 50, 50), (WIDTH // 2 - planet["distance"], HEIGHT // 2 - planet["distance"], 2 * planet["distance"], 2 * planet["distance"]), 1)
 
 running = True
+screen.blit(background, (0, 0))  # Draw the background
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
+    
     screen.fill(BG_COLOR)
+    screen.blit(background, (0, 0))  # Draw the background
 
     draw_planet_orbits()  # Draw planet orbits
 
