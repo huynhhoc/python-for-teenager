@@ -6,7 +6,7 @@ import math
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 1580, 940
+WIDTH, HEIGHT = 1580, 840
 FPS = 60
 BG_COLOR = (0, 0, 0)
 
@@ -34,7 +34,10 @@ dong_chi_position = (0, -200)
 ha_chi_position = (0, 200)
 
 # Moon data (not to scale)
-moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": 1.5}
+# Adjust the moon's speed for approximately 12 orbits per year
+moon_speed = 6.1 #360 / (365 * 24 * 60 * 60 / 12)
+print ("Moon speed: ", moon_speed)
+moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": moon_speed}
 
 font = pygame.font.Font(None, 36)
 
@@ -60,7 +63,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    
     screen.fill(BG_COLOR)
     screen.blit(background, (0, 0))  # Draw the background
 
@@ -92,7 +94,6 @@ while running:
 
         # Draw the Moon
         pygame.draw.circle(screen, moon_data["color"], (int(moon_x), int(moon_y)), moon_data["radius"])
-
 
     # Create a text surface with the Moon name
     text_surface = font.render(moon_data["name"], True, (255, 255, 255))

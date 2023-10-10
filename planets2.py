@@ -6,7 +6,7 @@ import math
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 1580, 940
+WIDTH, HEIGHT = 1280, 640
 FPS = 60
 BG_COLOR = (0, 0, 0)
 
@@ -17,14 +17,14 @@ pygame.display.set_caption("Solar System Simulation")
 # Planet data (not to scale)
 planet_data = [
     {"name": "Sun", "color": (255, 255, 0), "radius": 50, "distance": 0, "angle": 0, "speed": 0},
-    {"name": "Mercury", "color": (169, 169, 169), "radius": 10, "distance": 100, "angle": 0, "speed": 1},
-    {"name": "Venus", "color": (255, 69, 0), "radius": 15, "distance": 150, "angle": 0, "speed": 0.75},
-    {"name": "Earth", "color": (0, 0, 255), "radius": 15, "distance": 200, "angle": 0, "speed": 0.5},
-    {"name": "Mars", "color": (255, 0, 0), "radius": 12, "distance": 250, "angle": 0, "speed": 0.4},
-    {"name": "Jupiter", "color": (255, 165, 0), "radius": 30, "distance": 350, "angle": 0, "speed": 0.2},
-    {"name": "Saturn", "color": (255, 255, 0), "radius": 25, "distance": 450, "angle": 0, "speed": 0.15},
-    {"name": "Uranus", "color": (0, 255, 255), "radius": 20, "distance": 550, "angle": 0, "speed": 0.1},
-    {"name": "Neptune", "color": (0, 0, 128), "radius": 18, "distance": 650, "angle": 0, "speed": 0.08},
+    {"name": "Mercury", "color": (169, 169, 169), "radius": 10, "distance": 100, "angle": 0, "speed": 3},
+    {"name": "Venus", "color": (255, 69, 0), "radius": 15, "distance": 150, "angle": 0, "speed": 5},
+    {"name": "Earth", "color": (0, 0, 255), "radius": 15, "distance": 200, "angle": 0, "speed": 6},
+    {"name": "Mars", "color": (255, 0, 0), "radius": 12, "distance": 250, "angle": 0, "speed": 7},
+    {"name": "Jupiter", "color": (255, 165, 0), "radius": 30, "distance": 350, "angle": 0, "speed": 8},
+    {"name": "Saturn", "color": (255, 255, 0), "radius": 25, "distance": 450, "angle": 0, "speed": 9},
+    {"name": "Uranus", "color": (0, 255, 255), "radius": 20, "distance": 550, "angle": 0, "speed": 10},
+    {"name": "Neptune", "color": (0, 0, 128), "radius": 18, "distance": 650, "angle": 0, "speed": 11},
     # Add more planets here
 ]
 # Load background image
@@ -34,7 +34,10 @@ dong_chi_position = (0, -200)
 ha_chi_position = (0, 200)
 
 # Moon data (not to scale)
-moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": 1.5}
+# Adjust the moon's speed for approximately 12 orbits per year
+moon_speed = 6.1 #360 / (365 * 24 * 60 * 60 / 12)
+print ("Moon speed: ", moon_speed)
+moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": moon_speed}
 
 font = pygame.font.Font(None, 36)
 
@@ -60,7 +63,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    
     screen.fill(BG_COLOR)
     screen.blit(background, (0, 0))  # Draw the background
 
@@ -92,7 +94,6 @@ while running:
 
         # Draw the Moon
         pygame.draw.circle(screen, moon_data["color"], (int(moon_x), int(moon_y)), moon_data["radius"])
-
 
     # Create a text surface with the Moon name
     text_surface = font.render(moon_data["name"], True, (255, 255, 255))

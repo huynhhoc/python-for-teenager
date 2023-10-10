@@ -1,0 +1,8 @@
+print("So sanh bang:", 7 == 7)
+print("So sanh khac:", 7 != 7)
+print("So sanh bang:", 7 == 8)
+print("So sanh khac:", 7 != 8)
+print("So sanh lon hon:", 7 > 8)
+print("So sanh nho hon:", 7 < 8)
+print("So sanh lon hon hay bang:", 7 >= 8)
+print("So sanh nho hon hay bang:", 7 <= 8)

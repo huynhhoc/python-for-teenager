@@ -6,7 +6,7 @@ import math
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 1580, 940
+WIDTH, HEIGHT = 1280, 640
 FPS = 60
 BG_COLOR = (0, 0, 0)
 
@@ -16,7 +16,7 @@ pygame.display.set_caption("Solar System Simulation")
 
 # Planet data (not to scale)
 planet_data = [
-    {"name": "Sun", "color": (255, 255, 0), "radius": 50, "distance": 0, "angle": 0, "speed": 0},
+    {"name": "Sun", "color": (255, 255, 0), "radius": 50, "distance": 5, "angle": 2, "speed": 10},
     {"name": "Mercury", "color": (169, 169, 169), "radius": 10, "distance": 100, "angle": 0, "speed": 1},
     {"name": "Venus", "color": (255, 69, 0), "radius": 15, "distance": 150, "angle": 0, "speed": 0.75},
     {"name": "Earth", "color": (0, 0, 255), "radius": 15, "distance": 200, "angle": 0, "speed": 0.5},
@@ -34,7 +34,7 @@ dong_chi_position = (0, -200)
 ha_chi_position = (0, 200)
 
 # Moon data (not to scale)
-moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": 1.5}
+moon_data = {"name": "Moon", "color": (169, 169, 169), "radius": 5, "distance": 40, "angle": 0, "speed": 11}
 
 font = pygame.font.Font(None, 36)
 
